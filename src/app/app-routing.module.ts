@@ -1,11 +1,10 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
 
 export const routes: Routes = [
   {
     path: 'nyra',
-    component: AppComponent,
+    loadChildren: () => import('./main/main.module').then((m) => m.MainModule),
   },
   { path: '', redirectTo: 'nyra', pathMatch: 'full' },
   { path: '**', redirectTo: 'nyra' },
